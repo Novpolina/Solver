@@ -1,0 +1,147 @@
+\doxysection{find\+Roots.\+cpp}
+\hypertarget{find_roots_8cpp_source}{}\label{find_roots_8cpp_source}\index{D:/CodeBlocksProjects/Solver/findRoots.cpp@{D:/CodeBlocksProjects/Solver/findRoots.cpp}}
+\mbox{\hyperlink{find_roots_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00001}00001\ \textcolor{comment}{//==============================================================================================}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <locale.h>}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{find_roots_8h}{findRoots.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00014}00014\ \textcolor{comment}{//\{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00022}00022\ \textcolor{comment}{//\}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00026}\mbox{\hyperlink{find_roots_8cpp_ae41c0ec9559ca45e82507ab24ffe2279}{00026}}\ \mbox{\hyperlink{structcoef}{coef}}\ \mbox{\hyperlink{find_roots_8cpp_ae41c0ec9559ca45e82507ab24ffe2279}{makeCoef}}\ (\textcolor{keywordtype}{float}\ a,\ \textcolor{keywordtype}{float}\ b,\ \textcolor{keywordtype}{float}\ c)\{}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00027}00027\ \ \ \ \ \mbox{\hyperlink{structcoef}{coef}}\ quatr\{\};}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00028}00028\ \ \ \ \ quatr.\mbox{\hyperlink{structcoef_a31dd8b5f548389f3331ba0daa9a563ee}{a}}\ =\ a;}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00029}00029\ \ \ \ \ quatr.b\ =\ b;}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00030}00030\ \ \ \ \ quatr.c\ =\ c;}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{return}\ quatr;}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00032}00032\ \}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00033}00033\ \textcolor{comment}{//\{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00040}00040\ \textcolor{comment}{//\}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00042}\mbox{\hyperlink{find_roots_8cpp_ae837d48c7324ccbce838adf66aaf974c}{00042}}\ \mbox{\hyperlink{structroots}{roots}}\ \mbox{\hyperlink{find_roots_8cpp_ae837d48c7324ccbce838adf66aaf974c}{makeRoots}}\ (\textcolor{keywordtype}{int}\ num,\ \textcolor{keywordtype}{float}\ x1,\ \textcolor{keywordtype}{float}\ x2,\ \textcolor{keywordtype}{float}\ comp)\{}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{structroots}{roots}}\ myRoots\{\};}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00044}00044\ \ \ \ \ myRoots.\mbox{\hyperlink{structroots_ae005c16e93e07f661b5f53103f37449b}{num}}\ =\ num;}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00045}00045\ \ \ \ \ myRoots.x1\ =\ x1;}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00046}00046\ \ \ \ \ myRoots.x2\ =\ x2;}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00047}00047\ \ \ \ \ myRoots.comp\ =\ comp;}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{return}\ myRoots;}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00049}00049\ \}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00051}00051\ \textcolor{comment}{//\{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00057}00057\ \textcolor{comment}{//\}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00059}\mbox{\hyperlink{find_roots_8cpp_ab3680e36f6334616b44dd785f82c2ce3}{00059}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{find_roots_8cpp_ab3680e36f6334616b44dd785f82c2ce3}{compare}}\ (\textcolor{keywordtype}{float}\ a,\ \textcolor{keywordtype}{float}\ b)\ \{}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{if}(\ fabs(a\ -\/b)\ <\ \mbox{\hyperlink{find_roots_8h_ab84b0a39a5bcd3e4bd1a2d19b015bde9}{EPSILON}})\{}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{find_roots_8h_ace9a2de09a17cabe1e3460d98f605828a5f37412acdfca41c20e2fc90551eac03}{EQUVAL}};}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00062}00062\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00063}00063\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(a\ -\/\ b\ >\ \mbox{\hyperlink{find_roots_8h_ab84b0a39a5bcd3e4bd1a2d19b015bde9}{EPSILON}})\{}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{find_roots_8h_ace9a2de09a17cabe1e3460d98f605828a6a7856cca1833641e731676636b193f1}{FIRST}};}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00065}00065\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00066}00066\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{find_roots_8h_ace9a2de09a17cabe1e3460d98f605828a7cb36ff0a80f238d5b987d9250d369e3}{SECOND}};}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00067}00067\ \}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00069}00069\ \textcolor{comment}{//\{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00073}00073\ \textcolor{comment}{//\}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00075}\mbox{\hyperlink{find_roots_8cpp_ae463a021b0c4c6a9c5885fe7e7adf1a0}{00075}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{find_roots_8cpp_ae463a021b0c4c6a9c5885fe7e7adf1a0}{rootsOrder}}\ (\mbox{\hyperlink{structroots}{roots}}*\ myRoots)\{}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00076}00076\ \ \ \ \ assert(myRoots\ !=\ NULL);}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00078}00078\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{find_roots_8cpp_ab3680e36f6334616b44dd785f82c2ce3}{compare}}(myRoots-\/>\mbox{\hyperlink{structroots_ac8f6568c44a28f8aef0f069e34cf2cd0}{x1}},\ myRoots-\/>\mbox{\hyperlink{structroots_af9db083523b8a3a47c47663524f01204}{x2}})\ ==\ \mbox{\hyperlink{find_roots_8h_ace9a2de09a17cabe1e3460d98f605828a6a7856cca1833641e731676636b193f1}{FIRST}})\{}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ a\ =\ myRoots-\/>\mbox{\hyperlink{structroots_af9db083523b8a3a47c47663524f01204}{x2}};}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ myRoots-\/>\mbox{\hyperlink{structroots_af9db083523b8a3a47c47663524f01204}{x2}}\ =\ myRoots-\/>\mbox{\hyperlink{structroots_ac8f6568c44a28f8aef0f069e34cf2cd0}{x1}};}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ myRoots-\/>\mbox{\hyperlink{structroots_ac8f6568c44a28f8aef0f069e34cf2cd0}{x1}}\ =\ a;}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00083}00083\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00084}00084\ \}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00086}00086\ \textcolor{comment}{//\{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00089}00089\ \textcolor{comment}{//\}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00091}\mbox{\hyperlink{find_roots_8cpp_a014aa2d11267b4ed4e0b168409a7b0ff}{00091}}\ \mbox{\hyperlink{structroots}{roots}}\ \mbox{\hyperlink{find_roots_8cpp_a014aa2d11267b4ed4e0b168409a7b0ff}{findLinear}}(\mbox{\hyperlink{structcoef}{coef}}\ quatr)\{}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00092}00092\ \ \ \ \ \mbox{\hyperlink{structroots}{roots}}\ myRoots\{\mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375ab9a321da349ac1355b717745736ad90c}{NO\_ROOTS}},\ \mbox{\hyperlink{find_roots_8h_a6eda7f610e8b4471da3ee9ad87641fd4}{DEFOLT}},\ \mbox{\hyperlink{find_roots_8h_a6eda7f610e8b4471da3ee9ad87641fd4}{DEFOLT}},\ \mbox{\hyperlink{find_roots_8h_a6eda7f610e8b4471da3ee9ad87641fd4}{DEFOLT}}\};}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00094}00094\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{find_roots_8cpp_ab3680e36f6334616b44dd785f82c2ce3}{compare}}(quatr.\mbox{\hyperlink{structcoef_a400a5d13265449d204ea16cd75eab060}{b}},\ 0)\ !=\ 0)\{}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ myRoots.\mbox{\hyperlink{structroots_ac8f6568c44a28f8aef0f069e34cf2cd0}{x1}}\ =\ -\/quatr.\mbox{\hyperlink{structcoef_ac6dfa71cf14f1bee34fae8579c9ce979}{c}}/quatr.\mbox{\hyperlink{structcoef_a400a5d13265449d204ea16cd75eab060}{b}};}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ myRoots.comp\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ myRoots.num\ =\ \mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375a6700c0f6efd23571cb22aefd2510b1cf}{ONE\_ROOT}};}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00098}00098\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00099}00099\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{find_roots_8cpp_ab3680e36f6334616b44dd785f82c2ce3}{compare}}(quatr.\mbox{\hyperlink{structcoef_ac6dfa71cf14f1bee34fae8579c9ce979}{c}},\ 0)\ ==\ 0)\{}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ myRoots.comp\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ myRoots.num\ =\ \mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375a58931ed60e73673d523a9fe41678dae7}{INFIN\_ROOTS}};}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00102}00102\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00103}00103\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ myRoots.comp\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ myRoots.num\ =\ \mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375ab9a321da349ac1355b717745736ad90c}{NO\_ROOTS}};}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00107}00107\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00108}00108\ \ \ \ \ \textcolor{keywordflow}{return}\ myRoots;}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00110}00110\ \}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00112}00112\ \textcolor{comment}{//\{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00115}00115\ \textcolor{comment}{//\}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00117}\mbox{\hyperlink{find_roots_8cpp_a5110b23a5137e4dfc2a73f1d02a06556}{00117}}\ \mbox{\hyperlink{structroots}{roots}}\ \mbox{\hyperlink{find_roots_8cpp_a5110b23a5137e4dfc2a73f1d02a06556}{solveQuadratic}}(\ \mbox{\hyperlink{structcoef}{coef}}\ quatr\ )\{}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00119}00119\ \ \ \ \ \mbox{\hyperlink{structroots}{roots}}\ myRoot\{\mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375ab9a321da349ac1355b717745736ad90c}{NO\_ROOTS}},\ \mbox{\hyperlink{find_roots_8h_a6eda7f610e8b4471da3ee9ad87641fd4}{DEFOLT}},\ \mbox{\hyperlink{find_roots_8h_a6eda7f610e8b4471da3ee9ad87641fd4}{DEFOLT}},\ \mbox{\hyperlink{find_roots_8h_a6eda7f610e8b4471da3ee9ad87641fd4}{DEFOLT}}\};}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00120}00120\ \ \ \ \ \textcolor{keywordtype}{int}\ d\ =\ quatr.\mbox{\hyperlink{structcoef_a400a5d13265449d204ea16cd75eab060}{b}}\ *\ quatr.\mbox{\hyperlink{structcoef_a400a5d13265449d204ea16cd75eab060}{b}}\ -\/\ 4\ *\ quatr.\mbox{\hyperlink{structcoef_a31dd8b5f548389f3331ba0daa9a563ee}{a}}\ *\ quatr.\mbox{\hyperlink{structcoef_ac6dfa71cf14f1bee34fae8579c9ce979}{c}};}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00121}00121\ \ \ \ \ \textcolor{keywordtype}{float}\ sqrt\_val\ =\ sqrt(fabs(d));}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00123}00123\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{find_roots_8cpp_ab3680e36f6334616b44dd785f82c2ce3}{compare}}(d,\ 0)\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ myRoot.x1\ =\ (-\/quatr.\mbox{\hyperlink{structcoef_a400a5d13265449d204ea16cd75eab060}{b}}\ +\ sqrt\_val)\ /\ (2\ *\ quatr.\mbox{\hyperlink{structcoef_a31dd8b5f548389f3331ba0daa9a563ee}{a}});\ \textcolor{comment}{//ошибка\ quatr.b}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00125}00125\ \ \ \ \ \ \ \ \ myRoot.x2\ =\ (-\/quatr.\mbox{\hyperlink{structcoef_a400a5d13265449d204ea16cd75eab060}{b}}\ -\/\ sqrt\_val)\ /\ (2\ *\ quatr.\mbox{\hyperlink{structcoef_a31dd8b5f548389f3331ba0daa9a563ee}{a}});}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ myRoot.comp\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ myRoot.num\ =\ \mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375a876622d3c0b008da13a3685c64714e81}{TWO\_ROOTS}};}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00128}00128\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00129}00129\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{find_roots_8cpp_ab3680e36f6334616b44dd785f82c2ce3}{compare}}(d,\ 0)\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ myRoot.x1\ =\ \ -\/quatr.\mbox{\hyperlink{structcoef_a400a5d13265449d204ea16cd75eab060}{b}}\ /\ (2\ *\ quatr.\mbox{\hyperlink{structcoef_a31dd8b5f548389f3331ba0daa9a563ee}{a}});}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ myRoot.x2\ =\ myRoot.x1;}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ myRoot.comp\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ myRoot.num\ =\ \mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375a6700c0f6efd23571cb22aefd2510b1cf}{ONE\_ROOT}};}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00134}00134\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00135}00135\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00136}00136\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ myRoot.x1\ =\ -\/quatr.\mbox{\hyperlink{structcoef_a400a5d13265449d204ea16cd75eab060}{b}}\ /\ (4\ *\ quatr.\mbox{\hyperlink{structcoef_a31dd8b5f548389f3331ba0daa9a563ee}{a}});\ \textcolor{comment}{//ошибка\ 2\ а не 4}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ myRoot.x2\ =\ myRoot.x1;}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ myRoot.comp\ =\ sqrt\_val\ /\ (2\ *\ quatr.\mbox{\hyperlink{structcoef_a31dd8b5f548389f3331ba0daa9a563ee}{a}});}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ myRoot.num\ =\ \mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375a876622d3c0b008da13a3685c64714e81}{TWO\_ROOTS}};}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00141}00141\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00142}00142\ \ \ \ \ \textcolor{keywordflow}{return}\ myRoot;}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00143}00143\ \}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00145}00145\ \textcolor{comment}{//\{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00149}00149\ \textcolor{comment}{//\}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00151}\mbox{\hyperlink{find_roots_8cpp_af23931b7bcfde32e1f1fc9ddcf292b1c}{00151}}\ \mbox{\hyperlink{structroots}{roots}}\ \mbox{\hyperlink{find_roots_8cpp_af23931b7bcfde32e1f1fc9ddcf292b1c}{findRoots}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structcoef}{coef}}\ quatr)\ \{}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00152}00152\ \ \ \ \ \mbox{\hyperlink{structroots}{roots}}\ myRoots\{\mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375ab9a321da349ac1355b717745736ad90c}{NO\_ROOTS}},\ \mbox{\hyperlink{find_roots_8h_a6eda7f610e8b4471da3ee9ad87641fd4}{DEFOLT}},\ \mbox{\hyperlink{find_roots_8h_a6eda7f610e8b4471da3ee9ad87641fd4}{DEFOLT}},\ \mbox{\hyperlink{find_roots_8h_a6eda7f610e8b4471da3ee9ad87641fd4}{DEFOLT}}\};}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00154}00154\ \ \ \ \ assert\ (\&myRoots.x1\ !=\ NULL\ \&\&\ \textcolor{stringliteral}{"{}X1\ un\ correct"{}});}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00155}00155\ \ \ \ \ assert\ (\&myRoots.x2\ !=\ NULL);}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00157}00157\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{find_roots_8cpp_ab3680e36f6334616b44dd785f82c2ce3}{compare}}(quatr.\mbox{\hyperlink{structcoef_a31dd8b5f548389f3331ba0daa9a563ee}{a}},\ 0)\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ myRoots\ =\ \mbox{\hyperlink{find_roots_8cpp_a014aa2d11267b4ed4e0b168409a7b0ff}{findLinear}}(quatr);}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00159}00159\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00160}00160\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{find_roots_8cpp_ab3680e36f6334616b44dd785f82c2ce3}{compare}}(quatr.\mbox{\hyperlink{structcoef_ac6dfa71cf14f1bee34fae8579c9ce979}{c}},\ 0)\ ==\ 0)\{}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ myRoots.x1\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ myRoots.x2\ =\ -\/quatr.\mbox{\hyperlink{structcoef_a400a5d13265449d204ea16cd75eab060}{b}}/quatr.\mbox{\hyperlink{structcoef_ac6dfa71cf14f1bee34fae8579c9ce979}{c}};}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ myRoots.comp\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ myRoots.num\ =\ \mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375a6700c0f6efd23571cb22aefd2510b1cf}{ONE\_ROOT}};}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00165}00165\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00166}00166\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00167}00167\ \ \ \ \ \ \ \ \ myRoots\ =\ \mbox{\hyperlink{find_roots_8cpp_a5110b23a5137e4dfc2a73f1d02a06556}{solveQuadratic}}(quatr);}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00168}00168\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00169}00169\ \ \ \ \ \mbox{\hyperlink{find_roots_8cpp_ae463a021b0c4c6a9c5885fe7e7adf1a0}{rootsOrder}}(\&myRoots);}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00172}00172\ \ \ \ \ \textcolor{keywordflow}{return}\ myRoots;}
+\DoxyCodeLine{\Hypertarget{find_roots_8cpp_source_l00173}00173\ \}}
+
+\end{DoxyCode}

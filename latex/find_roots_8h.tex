@@ -1,0 +1,334 @@
+\doxysection{D\+:/\+Code\+Blocks\+Projects/\+Solver/find\+Roots.h File Reference}
+\hypertarget{find_roots_8h}{}\label{find_roots_8h}\index{D:/CodeBlocksProjects/Solver/findRoots.h@{D:/CodeBlocksProjects/Solver/findRoots.h}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcoef}{coef}}
+\begin{DoxyCompactList}\small\item\em Structure for coefficients of the quadratic equation. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structroots}{roots}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{find_roots_8h_ace9a2de09a17cabe1e3460d98f605828}{comparation}} \{ \mbox{\hyperlink{find_roots_8h_ace9a2de09a17cabe1e3460d98f605828a5f37412acdfca41c20e2fc90551eac03}{EQUVAL}}
+, \mbox{\hyperlink{find_roots_8h_ace9a2de09a17cabe1e3460d98f605828a6a7856cca1833641e731676636b193f1}{FIRST}}
+, \mbox{\hyperlink{find_roots_8h_ace9a2de09a17cabe1e3460d98f605828a7cb36ff0a80f238d5b987d9250d369e3}{SECOND}}
+ \}
+\item 
+enum \mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375}{number\+Of\+Roots}} \{ \mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375ab9a321da349ac1355b717745736ad90c}{NO\+\_\+\+ROOTS}}
+, \mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375a6700c0f6efd23571cb22aefd2510b1cf}{ONE\+\_\+\+ROOT}}
+, \mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375a876622d3c0b008da13a3685c64714e81}{TWO\+\_\+\+ROOTS}}
+, \mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375a58931ed60e73673d523a9fe41678dae7}{INFIN\+\_\+\+ROOTS}}
+ \}
+\begin{DoxyCompactList}\small\item\em To store the number of roots of the equation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structroots}{roots}} \mbox{\hyperlink{find_roots_8h_adff29ad5d28dbee4d47821258604f6e2}{make\+Roots}} (int, float, float, float)
+\item 
+\mbox{\hyperlink{structcoef}{coef}} \mbox{\hyperlink{find_roots_8h_a0ed56147753d3d6ae5a75fd92bc9f42c}{make\+Coef}} (float, float, float)
+\item 
+\mbox{\hyperlink{structroots}{roots}} \mbox{\hyperlink{find_roots_8h_abef61e8777d3f3b4e9f4bb7df4e19160}{find\+Roots}} (struct \mbox{\hyperlink{structcoef}{coef}})
+\item 
+int \mbox{\hyperlink{find_roots_8h_a4325d9f10b8c4df32cc06839a4813382}{compare}} (float, float)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const float \mbox{\hyperlink{find_roots_8h_ab84b0a39a5bcd3e4bd1a2d19b015bde9}{EPSILON}} = 0.\+000001
+\item 
+const float \mbox{\hyperlink{find_roots_8h_a6eda7f610e8b4471da3ee9ad87641fd4}{DEFOLT}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{find_roots_8h_ace9a2de09a17cabe1e3460d98f605828}\label{find_roots_8h_ace9a2de09a17cabe1e3460d98f605828} 
+\index{findRoots.h@{findRoots.h}!comparation@{comparation}}
+\index{comparation@{comparation}!findRoots.h@{findRoots.h}}
+\doxysubsubsection{\texorpdfstring{comparation}{comparation}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{find_roots_8h_ace9a2de09a17cabe1e3460d98f605828}{comparation}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EQUVAL@{EQUVAL}!findRoots.h@{findRoots.h}}\index{findRoots.h@{findRoots.h}!EQUVAL@{EQUVAL}}}\Hypertarget{find_roots_8h_ace9a2de09a17cabe1e3460d98f605828a5f37412acdfca41c20e2fc90551eac03}\label{find_roots_8h_ace9a2de09a17cabe1e3460d98f605828a5f37412acdfca41c20e2fc90551eac03} 
+EQUVAL&numbers are equval \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FIRST@{FIRST}!findRoots.h@{findRoots.h}}\index{findRoots.h@{findRoots.h}!FIRST@{FIRST}}}\Hypertarget{find_roots_8h_ace9a2de09a17cabe1e3460d98f605828a6a7856cca1833641e731676636b193f1}\label{find_roots_8h_ace9a2de09a17cabe1e3460d98f605828a6a7856cca1833641e731676636b193f1} 
+FIRST&the first number is greater than the second \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SECOND@{SECOND}!findRoots.h@{findRoots.h}}\index{findRoots.h@{findRoots.h}!SECOND@{SECOND}}}\Hypertarget{find_roots_8h_ace9a2de09a17cabe1e3460d98f605828a7cb36ff0a80f238d5b987d9250d369e3}\label{find_roots_8h_ace9a2de09a17cabe1e3460d98f605828a7cb36ff0a80f238d5b987d9250d369e3} 
+SECOND&the second number is greater than the first \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{find_roots_8h_source_l00009}{9}} of file \mbox{\hyperlink{find_roots_8h_source}{find\+Roots.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{find_roots_8h_ace9a2de09a17cabe1e3460d98f605828a5f37412acdfca41c20e2fc90551eac03}{EQUVAL}},\ }
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{find_roots_8h_ace9a2de09a17cabe1e3460d98f605828a6a7856cca1833641e731676636b193f1}{FIRST}},\ \ }
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{find_roots_8h_ace9a2de09a17cabe1e3460d98f605828a7cb36ff0a80f238d5b987d9250d369e3}{SECOND}}\ }
+\DoxyCodeLine{00013\ \};}
+
+\end{DoxyCode}
+\Hypertarget{find_roots_8h_ab4611c2fee0b205012e761712cdc6375}\label{find_roots_8h_ab4611c2fee0b205012e761712cdc6375} 
+\index{findRoots.h@{findRoots.h}!numberOfRoots@{numberOfRoots}}
+\index{numberOfRoots@{numberOfRoots}!findRoots.h@{findRoots.h}}
+\doxysubsubsection{\texorpdfstring{numberOfRoots}{numberOfRoots}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375}{number\+Of\+Roots}}}
+
+
+
+To store the number of roots of the equation. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NO\_ROOTS@{NO\_ROOTS}!findRoots.h@{findRoots.h}}\index{findRoots.h@{findRoots.h}!NO\_ROOTS@{NO\_ROOTS}}}\Hypertarget{find_roots_8h_ab4611c2fee0b205012e761712cdc6375ab9a321da349ac1355b717745736ad90c}\label{find_roots_8h_ab4611c2fee0b205012e761712cdc6375ab9a321da349ac1355b717745736ad90c} 
+NO\+\_\+\+ROOTS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ONE\_ROOT@{ONE\_ROOT}!findRoots.h@{findRoots.h}}\index{findRoots.h@{findRoots.h}!ONE\_ROOT@{ONE\_ROOT}}}\Hypertarget{find_roots_8h_ab4611c2fee0b205012e761712cdc6375a6700c0f6efd23571cb22aefd2510b1cf}\label{find_roots_8h_ab4611c2fee0b205012e761712cdc6375a6700c0f6efd23571cb22aefd2510b1cf} 
+ONE\+\_\+\+ROOT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TWO\_ROOTS@{TWO\_ROOTS}!findRoots.h@{findRoots.h}}\index{findRoots.h@{findRoots.h}!TWO\_ROOTS@{TWO\_ROOTS}}}\Hypertarget{find_roots_8h_ab4611c2fee0b205012e761712cdc6375a876622d3c0b008da13a3685c64714e81}\label{find_roots_8h_ab4611c2fee0b205012e761712cdc6375a876622d3c0b008da13a3685c64714e81} 
+TWO\+\_\+\+ROOTS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INFIN\_ROOTS@{INFIN\_ROOTS}!findRoots.h@{findRoots.h}}\index{findRoots.h@{findRoots.h}!INFIN\_ROOTS@{INFIN\_ROOTS}}}\Hypertarget{find_roots_8h_ab4611c2fee0b205012e761712cdc6375a58931ed60e73673d523a9fe41678dae7}\label{find_roots_8h_ab4611c2fee0b205012e761712cdc6375a58931ed60e73673d523a9fe41678dae7} 
+INFIN\+\_\+\+ROOTS&shows that equation has an infinite number of roots \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{find_roots_8h_source_l00016}{16}} of file \mbox{\hyperlink{find_roots_8h_source}{find\+Roots.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375ab9a321da349ac1355b717745736ad90c}{NO\_ROOTS}},\ \mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375a6700c0f6efd23571cb22aefd2510b1cf}{ONE\_ROOT}},\ \mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375a876622d3c0b008da13a3685c64714e81}{TWO\_ROOTS}},}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375a58931ed60e73673d523a9fe41678dae7}{INFIN\_ROOTS}}\ }
+\DoxyCodeLine{00019\ \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{find_roots_8h_a4325d9f10b8c4df32cc06839a4813382}\label{find_roots_8h_a4325d9f10b8c4df32cc06839a4813382} 
+\index{findRoots.h@{findRoots.h}!compare@{compare}}
+\index{compare@{compare}!findRoots.h@{findRoots.h}}
+\doxysubsubsection{\texorpdfstring{compare()}{compare()}}
+{\footnotesize\ttfamily int compare (\begin{DoxyParamCaption}\item[{float}]{a,  }\item[{float}]{b }\end{DoxyParamCaption})}
+
+Compare two numbers
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & First number \\
+\hline
+{\em b} & second pnumber \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+result of comparation 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{find_roots_8cpp_source_l00059}{59}} of file \mbox{\hyperlink{find_roots_8cpp_source}{find\+Roots.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{if}(\ fabs(a\ -\/b)\ <\ \mbox{\hyperlink{find_roots_8h_ab84b0a39a5bcd3e4bd1a2d19b015bde9}{EPSILON}})\{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{find_roots_8h_ace9a2de09a17cabe1e3460d98f605828a5f37412acdfca41c20e2fc90551eac03}{EQUVAL}};}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(a\ -\/\ b\ >\ \mbox{\hyperlink{find_roots_8h_ab84b0a39a5bcd3e4bd1a2d19b015bde9}{EPSILON}})\{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{find_roots_8h_ace9a2de09a17cabe1e3460d98f605828a6a7856cca1833641e731676636b193f1}{FIRST}};}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{find_roots_8h_ace9a2de09a17cabe1e3460d98f605828a7cb36ff0a80f238d5b987d9250d369e3}{SECOND}};}
+\DoxyCodeLine{00067\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{find_roots_8h_source_l00005}{EPSILON}}, \mbox{\hyperlink{find_roots_8h_source_l00010}{EQUVAL}}, \mbox{\hyperlink{find_roots_8h_source_l00011}{FIRST}}, and \mbox{\hyperlink{find_roots_8h_source_l00012}{SECOND}}.
+
+
+
+Referenced by \mbox{\hyperlink{find_roots_8cpp_source_l00091}{find\+Linear()}}, \mbox{\hyperlink{find_roots_8cpp_source_l00151}{find\+Roots()}}, \mbox{\hyperlink{find_roots_8cpp_source_l00075}{roots\+Order()}}, and \mbox{\hyperlink{find_roots_8cpp_source_l00117}{solve\+Quadratic()}}.
+
+\Hypertarget{find_roots_8h_abef61e8777d3f3b4e9f4bb7df4e19160}\label{find_roots_8h_abef61e8777d3f3b4e9f4bb7df4e19160} 
+\index{findRoots.h@{findRoots.h}!findRoots@{findRoots}}
+\index{findRoots@{findRoots}!findRoots.h@{findRoots.h}}
+\doxysubsubsection{\texorpdfstring{findRoots()}{findRoots()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structroots}{roots}} find\+Roots (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structcoef}{coef}}}]{quatr }\end{DoxyParamCaption})}
+
+Calls the desired function to solve the equation \begin{DoxySeeAlso}{See also}
+\doxylink{find_roots_8cpp_a014aa2d11267b4ed4e0b168409a7b0ff}{find\+Linear()}, \doxylink{find_roots_8cpp_a5110b23a5137e4dfc2a73f1d02a06556}{solve\+Quadratic()}, \doxylink{find_roots_8cpp_ae463a021b0c4c6a9c5885fe7e7adf1a0}{roots\+Order()} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+my\+Roots roots of the equation 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{find_roots_8cpp_source_l00151}{151}} of file \mbox{\hyperlink{find_roots_8cpp_source}{find\+Roots.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \mbox{\hyperlink{structroots}{roots}}\ myRoots\{\mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375ab9a321da349ac1355b717745736ad90c}{NO\_ROOTS}},\ \mbox{\hyperlink{find_roots_8h_a6eda7f610e8b4471da3ee9ad87641fd4}{DEFOLT}},\ \mbox{\hyperlink{find_roots_8h_a6eda7f610e8b4471da3ee9ad87641fd4}{DEFOLT}},\ \mbox{\hyperlink{find_roots_8h_a6eda7f610e8b4471da3ee9ad87641fd4}{DEFOLT}}\};}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ assert\ (\&myRoots.x1\ !=\ NULL\ \&\&\ \textcolor{stringliteral}{"{}X1\ un\ correct"{}});}
+\DoxyCodeLine{00155\ \ \ \ \ assert\ (\&myRoots.x2\ !=\ NULL);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{find_roots_8cpp_ab3680e36f6334616b44dd785f82c2ce3}{compare}}(quatr.\mbox{\hyperlink{structcoef_a31dd8b5f548389f3331ba0daa9a563ee}{a}},\ 0)\ ==\ 0)\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ myRoots\ =\ \mbox{\hyperlink{find_roots_8cpp_a014aa2d11267b4ed4e0b168409a7b0ff}{findLinear}}(quatr);}
+\DoxyCodeLine{00159\ \ \ \ \ \}}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{find_roots_8cpp_ab3680e36f6334616b44dd785f82c2ce3}{compare}}(quatr.\mbox{\hyperlink{structcoef_ac6dfa71cf14f1bee34fae8579c9ce979}{c}},\ 0)\ ==\ 0)\{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ myRoots.x1\ =\ 0;}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ myRoots.x2\ =\ -\/quatr.\mbox{\hyperlink{structcoef_a400a5d13265449d204ea16cd75eab060}{b}}/quatr.\mbox{\hyperlink{structcoef_ac6dfa71cf14f1bee34fae8579c9ce979}{c}};}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ myRoots.comp\ =\ 0;}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ myRoots.num\ =\ \mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375a6700c0f6efd23571cb22aefd2510b1cf}{ONE\_ROOT}};}
+\DoxyCodeLine{00165\ \ \ \ \ \}}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ myRoots\ =\ \mbox{\hyperlink{find_roots_8cpp_a5110b23a5137e4dfc2a73f1d02a06556}{solveQuadratic}}(quatr);}
+\DoxyCodeLine{00168\ \ \ \ \ \}}
+\DoxyCodeLine{00169\ \ \ \ \ \mbox{\hyperlink{find_roots_8cpp_ae463a021b0c4c6a9c5885fe7e7adf1a0}{rootsOrder}}(\&myRoots);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordflow}{return}\ myRoots;}
+\DoxyCodeLine{00173\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{find_roots_8h_source_l00025}{coef\+::a}}, \mbox{\hyperlink{find_roots_8h_source_l00026}{coef\+::b}}, \mbox{\hyperlink{find_roots_8h_source_l00027}{coef\+::c}}, \mbox{\hyperlink{find_roots_8cpp_source_l00059}{compare()}}, \mbox{\hyperlink{find_roots_8h_source_l00006}{DEFOLT}}, \mbox{\hyperlink{find_roots_8cpp_source_l00091}{find\+Linear()}}, \mbox{\hyperlink{find_roots_8h_source_l00017}{NO\+\_\+\+ROOTS}}, \mbox{\hyperlink{find_roots_8h_source_l00017}{ONE\+\_\+\+ROOT}}, \mbox{\hyperlink{find_roots_8cpp_source_l00075}{roots\+Order()}}, and \mbox{\hyperlink{find_roots_8cpp_source_l00117}{solve\+Quadratic()}}.
+
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00160}{main()}}, and \mbox{\hyperlink{test_solver_8cpp_source_l00065}{one\+Test()}}.
+
+\Hypertarget{find_roots_8h_a0ed56147753d3d6ae5a75fd92bc9f42c}\label{find_roots_8h_a0ed56147753d3d6ae5a75fd92bc9f42c} 
+\index{findRoots.h@{findRoots.h}!makeCoef@{makeCoef}}
+\index{makeCoef@{makeCoef}!findRoots.h@{findRoots.h}}
+\doxysubsubsection{\texorpdfstring{makeCoef()}{makeCoef()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcoef}{coef}} make\+Coef (\begin{DoxyParamCaption}\item[{float}]{a,  }\item[{float}]{b,  }\item[{float}]{c }\end{DoxyParamCaption})}
+
+Make the structure coef using parameters
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & Number of roots \\
+\hline
+{\em x1} & first root \\
+\hline
+{\em x2} & second root \\
+\hline
+{\em comp} & the complex part of the roots \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+quatr coefficients in structure 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{find_roots_8cpp_source_l00026}{26}} of file \mbox{\hyperlink{find_roots_8cpp_source}{find\+Roots.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{structcoef}{coef}}\ quatr\{\};}
+\DoxyCodeLine{00028\ \ \ \ \ quatr.\mbox{\hyperlink{structcoef_a31dd8b5f548389f3331ba0daa9a563ee}{a}}\ =\ a;}
+\DoxyCodeLine{00029\ \ \ \ \ quatr.b\ =\ b;}
+\DoxyCodeLine{00030\ \ \ \ \ quatr.c\ =\ c;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{return}\ quatr;}
+\DoxyCodeLine{00032\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{find_roots_8h_source_l00025}{coef\+::a}}.
+
+
+
+Referenced by \mbox{\hyperlink{test_solver_8cpp_source_l00047}{make\+Test()}}.
+
+\Hypertarget{find_roots_8h_adff29ad5d28dbee4d47821258604f6e2}\label{find_roots_8h_adff29ad5d28dbee4d47821258604f6e2} 
+\index{findRoots.h@{findRoots.h}!makeRoots@{makeRoots}}
+\index{makeRoots@{makeRoots}!findRoots.h@{findRoots.h}}
+\doxysubsubsection{\texorpdfstring{makeRoots()}{makeRoots()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structroots}{roots}} make\+Roots (\begin{DoxyParamCaption}\item[{int}]{num,  }\item[{float}]{x1,  }\item[{float}]{x2,  }\item[{float}]{comp }\end{DoxyParamCaption})}
+
+Make the structure roots using parameters
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & First parameter \\
+\hline
+{\em b} & second parameter \\
+\hline
+{\em c} & third parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+quatr roots in structure 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{find_roots_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{find_roots_8cpp_source}{find\+Roots.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{structroots}{roots}}\ myRoots\{\};}
+\DoxyCodeLine{00044\ \ \ \ \ myRoots.\mbox{\hyperlink{structroots_ae005c16e93e07f661b5f53103f37449b}{num}}\ =\ num;}
+\DoxyCodeLine{00045\ \ \ \ \ myRoots.x1\ =\ x1;}
+\DoxyCodeLine{00046\ \ \ \ \ myRoots.x2\ =\ x2;}
+\DoxyCodeLine{00047\ \ \ \ \ myRoots.comp\ =\ comp;}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{return}\ myRoots;}
+\DoxyCodeLine{00049\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{find_roots_8h_source_l00038}{roots\+::num}}.
+
+
+
+Referenced by \mbox{\hyperlink{test_solver_8cpp_source_l00047}{make\+Test()}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{find_roots_8h_a6eda7f610e8b4471da3ee9ad87641fd4}\label{find_roots_8h_a6eda7f610e8b4471da3ee9ad87641fd4} 
+\index{findRoots.h@{findRoots.h}!DEFOLT@{DEFOLT}}
+\index{DEFOLT@{DEFOLT}!findRoots.h@{findRoots.h}}
+\doxysubsubsection{\texorpdfstring{DEFOLT}{DEFOLT}}
+{\footnotesize\ttfamily const float DEFOLT = 0}
+
+
+
+Definition at line \mbox{\hyperlink{find_roots_8h_source_l00006}{6}} of file \mbox{\hyperlink{find_roots_8h_source}{find\+Roots.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{find_roots_8cpp_source_l00091}{find\+Linear()}}, \mbox{\hyperlink{find_roots_8cpp_source_l00151}{find\+Roots()}}, \mbox{\hyperlink{find_roots_8cpp_source_l00117}{solve\+Quadratic()}}, and \mbox{\hyperlink{test_solver_8cpp_source_l00116}{test\+Console()}}.
+
+\Hypertarget{find_roots_8h_ab84b0a39a5bcd3e4bd1a2d19b015bde9}\label{find_roots_8h_ab84b0a39a5bcd3e4bd1a2d19b015bde9} 
+\index{findRoots.h@{findRoots.h}!EPSILON@{EPSILON}}
+\index{EPSILON@{EPSILON}!findRoots.h@{findRoots.h}}
+\doxysubsubsection{\texorpdfstring{EPSILON}{EPSILON}}
+{\footnotesize\ttfamily const float EPSILON = 0.\+000001}
+
+
+
+Definition at line \mbox{\hyperlink{find_roots_8h_source_l00005}{5}} of file \mbox{\hyperlink{find_roots_8h_source}{find\+Roots.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{find_roots_8cpp_source_l00059}{compare()}}.
+

@@ -1,0 +1,324 @@
+\doxysection{D\+:/\+Code\+Blocks\+Projects/\+Solver/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{D:/CodeBlocksProjects/Solver/main.cpp@{D:/CodeBlocksProjects/Solver/main.cpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$locale.\+h$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include "{}test\+Solver.\+h"{}}\newline
+{\ttfamily \#include "{}find\+Roots.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8cpp_ad72dbcf6d0153db1b8d8a58001feed83}{DEBUG}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{main_8cpp_a8a830c6fa0c61ba9b5acca209e44f57f}{get\+One\+Cof}} ()
+\item 
+void \mbox{\hyperlink{main_8cpp_a4193dea9de42aaa3a459c00afc5abd3b}{get\+Cof}} (\mbox{\hyperlink{structcoef}{coef}} \texorpdfstring{$\ast$}{*}quatr)
+\item 
+void \mbox{\hyperlink{main_8cpp_af1b6633ebfa2806c200dc57910537751}{print\+Roots}} (\mbox{\hyperlink{structroots}{roots}} my\+Roots)
+\item 
+bool \mbox{\hyperlink{main_8cpp_aa0117c82a96349b20fdc793294c52b1a}{command\+Coefs}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{structcoef}{coef}} \texorpdfstring{$\ast$}{*}quatr)
+\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{main_8cpp_aabc96e995ea5d8e45c9751058e3fdd35}{IND}} = 3
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Quadratic equvals Solver and tests
+
+\begin{DoxyAuthor}{Author}
+Novikova Polina 
+\end{DoxyAuthor}
+
+
+Definition in file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{main_8cpp_ad72dbcf6d0153db1b8d8a58001feed83}\label{main_8cpp_ad72dbcf6d0153db1b8d8a58001feed83} 
+\index{main.cpp@{main.cpp}!DEBUG@{DEBUG}}
+\index{DEBUG@{DEBUG}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{DEBUG}{DEBUG}}
+{\footnotesize\ttfamily \#define DEBUG}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_aa0117c82a96349b20fdc793294c52b1a}\label{main_8cpp_aa0117c82a96349b20fdc793294c52b1a} 
+\index{main.cpp@{main.cpp}!commandCoefs@{commandCoefs}}
+\index{commandCoefs@{commandCoefs}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{commandCoefs()}{commandCoefs()}}
+{\footnotesize\ttfamily bool command\+Coefs (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{structcoef}{coef}} \texorpdfstring{$\ast$}{*}}]{quatr }\end{DoxyParamCaption})}
+
+Reads coefficients from the command line using the "{}-\/-\/coefs"{} flag
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Command line argument, shows the number of parameters \\
+\hline
+{\em argv} & Array of pointers to command line parameters \\
+\hline
+{\em quatr} & The structure in which the entered coefficients are recorded\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Was the reading successful 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00134}{134}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{char}\ coefComp[]\ =\ \textcolor{stringliteral}{"{}-\/-\/coefs"{}};}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ argc;\ i++)\{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(strcmp(coefComp,\ argv[i])\ ==\ 0)\{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ is\_coef\ =\ 0;}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ is\_coef\ +=\ sscanf(argv[i+1],\ \textcolor{stringliteral}{"{}\%f"{}},\ \&(*quatr).a);}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ is\_coef\ +=\ sscanf(argv[i+2],\ \textcolor{stringliteral}{"{}\%f"{}},\ \&(*quatr).b);}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ is\_coef\ +=\ sscanf(argv[i+3],\ \textcolor{stringliteral}{"{}\%f"{}},\ \&(*quatr).c);}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(is\_coef\ ==\ 3)\{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00146\ \ \ \ \ \}}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00148\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00160}{main()}}.
+
+\Hypertarget{main_8cpp_a4193dea9de42aaa3a459c00afc5abd3b}\label{main_8cpp_a4193dea9de42aaa3a459c00afc5abd3b} 
+\index{main.cpp@{main.cpp}!getCof@{getCof}}
+\index{getCof@{getCof}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{getCof()}{getCof()}}
+{\footnotesize\ttfamily void get\+Cof (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcoef}{coef}} \texorpdfstring{$\ast$}{*}}]{quatr }\end{DoxyParamCaption})}
+
+Reads coefficients from the console
+
+
+\begin{DoxyParams}{Parameters}
+{\em quatr} & The structure in which the entered coefficients are recorded \\
+\hline
+\end{DoxyParams}
+Prints the found roots of the quadratic equation
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+Roots} & Roots, which should be print\\
+\hline
+\end{DoxyParams}
+The function can output real and complex roots or a message that there are no roots The function displays messages in different colors"{} \begin{DoxySeeAlso}{See also}
+class \doxylink{structroots}{roots}
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ assert(quatr\ !=\ NULL);}
+\DoxyCodeLine{00059\ \ \ \ \ quatr-\/>\mbox{\hyperlink{structcoef_a31dd8b5f548389f3331ba0daa9a563ee}{a}}\ =\ \mbox{\hyperlink{main_8cpp_a8a830c6fa0c61ba9b5acca209e44f57f}{getOneCof}}();}
+\DoxyCodeLine{00060\ \ \ \ \ quatr-\/>\mbox{\hyperlink{structcoef_a400a5d13265449d204ea16cd75eab060}{b}}\ =\ \mbox{\hyperlink{main_8cpp_a8a830c6fa0c61ba9b5acca209e44f57f}{getOneCof}}();}
+\DoxyCodeLine{00061\ \ \ \ \ quatr-\/>\mbox{\hyperlink{structcoef_ac6dfa71cf14f1bee34fae8579c9ce979}{c}}\ =\ \mbox{\hyperlink{main_8cpp_a8a830c6fa0c61ba9b5acca209e44f57f}{getOneCof}}();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//\{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00071\ \textcolor{comment}{//\}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{find_roots_8h_source_l00025}{coef\+::a}}, \mbox{\hyperlink{find_roots_8h_source_l00026}{coef\+::b}}, \mbox{\hyperlink{find_roots_8h_source_l00027}{coef\+::c}}, and \mbox{\hyperlink{main_8cpp_source_l00033}{get\+One\+Cof()}}.
+
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00160}{main()}}.
+
+\Hypertarget{main_8cpp_a8a830c6fa0c61ba9b5acca209e44f57f}\label{main_8cpp_a8a830c6fa0c61ba9b5acca209e44f57f} 
+\index{main.cpp@{main.cpp}!getOneCof@{getOneCof}}
+\index{getOneCof@{getOneCof}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{getOneCof()}{getOneCof()}}
+{\footnotesize\ttfamily float get\+One\+Cof (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Reads one coefficient from the console
+
+
+\begin{DoxyParams}{Parameters}
+{\em No} & parameters\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+If the entered value is not a number, it displays a message about it and asks you to enter the correct number 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{float}\ a\ =\ 0;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ printf\ (\textcolor{stringliteral}{"{}Enter\ next\ value\(\backslash\)n"{}});}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{while}\ (scanf\ (\textcolor{stringliteral}{"{}\%f"{}},\ \&a)\ \ !=\ 1\ ||\ (getchar()\ !=\ \textcolor{charliteral}{'\(\backslash\)n'}\ \&\&\ getchar()\ !=\ \textcolor{charliteral}{'\ '}))\ \{}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ printf\ (\textcolor{stringliteral}{"{}It's\ not\ a\ number\(\backslash\)n"{}});}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ printf\ (\textcolor{stringliteral}{"{}Enter\ correct\ value\(\backslash\)n"{}});}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(getchar()\ !=\ \textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{return}\ a;}
+\DoxyCodeLine{00047\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00056}{get\+Cof()}}.
+
+\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+The main function
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Command line argument, shows the number of parameters \\
+\hline
+{\em argv} & Array of pointers to command line parameters\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{test_solver_8cpp_aed4f0b36b3f5de88f5a408dccd425f1d}{run\+\_\+all\+Tests()}, \doxylink{main_8cpp_aa0117c82a96349b20fdc793294c52b1a}{command\+Coefs()}, \doxylink{main_8cpp_a4193dea9de42aaa3a459c00afc5abd3b}{get\+Cof()}, \doxylink{find_roots_8cpp_af23931b7bcfde32e1f1fc9ddcf292b1c}{find\+Roots()}, \doxylink{main_8cpp_af1b6633ebfa2806c200dc57910537751}{print\+Roots()} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00160}{160}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00161\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \mbox{\hyperlink{structroots}{roots}}\ myRoots\{\};}
+\DoxyCodeLine{00163\ \ \ \ \ \mbox{\hyperlink{structcoef}{coef}}\ quatr\{\};}
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\#define\ DEBUG }}
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#ifdef\ \ DEBUG }}
+\DoxyCodeLine{00166\ \ \ \ \ \mbox{\hyperlink{test_solver_8cpp_aed4f0b36b3f5de88f5a408dccd425f1d}{run\_allTests}}(argc,\ argv);}
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordflow}{if}(!(\mbox{\hyperlink{main_8cpp_aa0117c82a96349b20fdc793294c52b1a}{commandCoefs}}(argc,\ argv,\ \&quatr)))\{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a4193dea9de42aaa3a459c00afc5abd3b}{getCof}}(\&quatr);}
+\DoxyCodeLine{00170\ \ \ \ \ \}}
+\DoxyCodeLine{00171\ \ \ \ \ myRoots\ =\ \mbox{\hyperlink{find_roots_8cpp_af23931b7bcfde32e1f1fc9ddcf292b1c}{findRoots}}(quatr);}
+\DoxyCodeLine{00172\ \ \ \ \ \mbox{\hyperlink{main_8cpp_af1b6633ebfa2806c200dc57910537751}{printRoots}}(myRoots);}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00175\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{main_8cpp_source_l00134}{command\+Coefs()}}, \mbox{\hyperlink{find_roots_8cpp_source_l00151}{find\+Roots()}}, \mbox{\hyperlink{main_8cpp_source_l00056}{get\+Cof()}}, \mbox{\hyperlink{main_8cpp_source_l00075}{print\+Roots()}}, and \mbox{\hyperlink{test_solver_8cpp_source_l00203}{run\+\_\+all\+Tests()}}.
+
+\Hypertarget{main_8cpp_af1b6633ebfa2806c200dc57910537751}\label{main_8cpp_af1b6633ebfa2806c200dc57910537751} 
+\index{main.cpp@{main.cpp}!printRoots@{printRoots}}
+\index{printRoots@{printRoots}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{printRoots()}{printRoots()}}
+{\footnotesize\ttfamily void print\+Roots (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structroots}{roots}}}]{my\+Roots }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00075}{75}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ HANDLE\ console\_color;}
+\DoxyCodeLine{00077\ \ \ \ \ console\_color\ =\ GetStdHandle(}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ STD\_OUTPUT\_HANDLE);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{switch}\ (myRoots.\mbox{\hyperlink{structroots_ae005c16e93e07f661b5f53103f37449b}{num}})\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375ab9a321da349ac1355b717745736ad90c}{NO\_ROOTS}}:}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Korney\ net,\ no\ est'\ kotik\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ ,\_\ \ \ \ \ \_\(\backslash\)n"{}}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ |\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)\_,-\/\string~/\(\backslash\)n"{}}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ /\ \_\ \ \_\ |\ \ \ \ ,-\/-\/.\(\backslash\)n"{}}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}(\ \ @\ \ @\ )\ \ \ /\ ,-\/'\(\backslash\)n"{}}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \(\backslash\)\(\backslash\)\ \ \_T\_/-\/.\_(\ (\(\backslash\)n"{}}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ /\ \ \ \ \ \ \ \ \ \`{}.\ \(\backslash\)\(\backslash\)\(\backslash\)n"{}}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}|\ \ \ \ \ \ \ \ \ \_\ \ \(\backslash\)\(\backslash\)\ |\(\backslash\)n"{}}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \(\backslash\)\(\backslash\)\ \(\backslash\)\(\backslash\)\ ,\ \ /\ \ \ \ \ \ |\(\backslash\)n"{}}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ ||\ |-\/\_\(\backslash\)\(\backslash\)\_\_\ \ \ /\(\backslash\)n"{}}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ ((\_/`(\_\_\_\_,-\/'"{}});}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375a6700c0f6efd23571cb22aefd2510b1cf}{ONE\_ROOT}}:}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Roots\ are\ real\ and\ same\(\backslash\)n"{}});}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%f"{}},\ myRoots.\mbox{\hyperlink{structroots_ac8f6568c44a28f8aef0f069e34cf2cd0}{x1}});}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375a876622d3c0b008da13a3685c64714e81}{TWO\_ROOTS}}:}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(myRoots.\mbox{\hyperlink{structroots_a0f83742ba2e2475da8f5da19c1a4102c}{comp}}\ ==\ 0)\{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Roots\ are\ real\ and\ different\(\backslash\)n"{}});}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%f\(\backslash\)n\%f"{}},\ myRoots.\mbox{\hyperlink{structroots_ac8f6568c44a28f8aef0f069e34cf2cd0}{x1}},\ myRoots.\mbox{\hyperlink{structroots_af9db083523b8a3a47c47663524f01204}{x2}});}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Roots\ are\ complex\(\backslash\)n"{}});}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%f\ -\/\ i\%f\(\backslash\)n\%f\ +\ i\%f"{}},\ myRoots.\mbox{\hyperlink{structroots_ac8f6568c44a28f8aef0f069e34cf2cd0}{x1}},\ myRoots.\mbox{\hyperlink{structroots_a0f83742ba2e2475da8f5da19c1a4102c}{comp}},\ myRoots.\mbox{\hyperlink{structroots_ac8f6568c44a28f8aef0f069e34cf2cd0}{x1}},\ myRoots.\mbox{\hyperlink{structroots_a0f83742ba2e2475da8f5da19c1a4102c}{comp}});}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{find_roots_8h_ab4611c2fee0b205012e761712cdc6375a58931ed60e73673d523a9fe41678dae7}{INFIN\_ROOTS}}:}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Any\ number"{}});}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ SetConsoleTextAttribute(console\_color,\ \mbox{\hyperlink{test_solver_8h_aba659bcba3358aadd16f9b90982a4cf1}{PINK}});}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error:\ roots\ =\ \%d\(\backslash\)n"{}},\ myRoots.\mbox{\hyperlink{structroots_ae005c16e93e07f661b5f53103f37449b}{num}});}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ SetConsoleTextAttribute(console\_color,\ \mbox{\hyperlink{test_solver_8h_a6fdc54ca55874b2959f7d77967f78dc2}{WHITE}});}
+\DoxyCodeLine{00120\ \ \ \ \ \}}
+\DoxyCodeLine{00121\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{find_roots_8h_source_l00041}{roots\+::comp}}, \mbox{\hyperlink{find_roots_8h_source_l00018}{INFIN\+\_\+\+ROOTS}}, \mbox{\hyperlink{find_roots_8h_source_l00017}{NO\+\_\+\+ROOTS}}, \mbox{\hyperlink{find_roots_8h_source_l00038}{roots\+::num}}, \mbox{\hyperlink{find_roots_8h_source_l00017}{ONE\+\_\+\+ROOT}}, \mbox{\hyperlink{test_solver_8h_source_l00011}{PINK}}, \mbox{\hyperlink{find_roots_8h_source_l00017}{TWO\+\_\+\+ROOTS}}, \mbox{\hyperlink{test_solver_8h_source_l00010}{WHITE}}, \mbox{\hyperlink{find_roots_8h_source_l00039}{roots\+::x1}}, and \mbox{\hyperlink{find_roots_8h_source_l00040}{roots\+::x2}}.
+
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00160}{main()}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{main_8cpp_aabc96e995ea5d8e45c9751058e3fdd35}\label{main_8cpp_aabc96e995ea5d8e45c9751058e3fdd35} 
+\index{main.cpp@{main.cpp}!IND@{IND}}
+\index{IND@{IND}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{IND}{IND}}
+{\footnotesize\ttfamily const int IND = 3}
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
