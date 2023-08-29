@@ -1,0 +1,98 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <cassert>
+#include <cmath>
+#include <cstring>
+#include "testSolver.h"
+#include "findRoots.h"
+const int IND = 3;
+
+float getOneCof() {
+    float a = 0;
+
+    printf ("Enter next value\n");
+
+    while (scanf ("%f", &a)  != 1 || (getchar() != '\n' && getchar() != ' ')) {
+
+        printf ("It's not a number\n");
+        printf ("Enter correct value\n");
+
+        while(getchar() != '\n')
+            ;
+    }
+    return a;
+}
+
+void GetCof (coef* quatr){
+
+    assert(quatr != NULL);
+    quatr->a = getOneCof();
+    quatr->b = getOneCof();
+    quatr->c = getOneCof();
+}
+
+void PrintRoots (roots myRoots){
+    HANDLE console_color;
+    console_color = GetStdHandle(
+            STD_OUTPUT_HANDLE);
+
+    switch (myRoots.num) {
+        case NO_ROOTS:
+            printf("Korney net, no est' kotik \n");
+            printf(" ,_     _\n"
+                   " |\\\\_,-~/\n"
+                   " / _  _ |    ,--.\n"
+                   "(  @  @ )   / ,-'\n"
+                   " \\  _T_/-._( (\n"
+                   " /         `. \\\n"
+                   "|         _  \\ |\n"
+                   " \\ \\ ,  /      |\n"
+                   "  || |-_\\__   /\n"
+                   " ((_/`(____,-'");
+            break;
+
+        case ONE_ROOT:
+            printf("Roots are real and same\n");
+            printf("%f", myRoots.x1);
+            break;
+
+        case TWO_ROOTS:
+            if(myRoots.comp == 0){
+                printf("Roots are real and different\n");
+                printf("%f\n%f", myRoots.x1, myRoots.x2);
+                printf("");
+            }
+            else{
+                printf("Roots are complex\n");
+                printf("%f - i%f\n%f + i%f", myRoots.x1, myRoots.comp, myRoots.x1, myRoots.comp);
+            }
+            break;
+
+        case INFIN_ROOTS:
+            printf("Any number");
+            break;
+
+        default:
+            SetConsoleTextAttribute(console_color, PINK);
+            printf("Error: roots = %d\n", myRoots.num);
+            SetConsoleTextAttribute(console_color, WHITE);
+    }
+
+
+}
+
+
+int main(int argc, char *argv[])
+{
+    roots myRoots{};
+    coef quatr{};
+
+    allTest(argc, argv);
+
+    GetCof(&quatr);
+    myRoots = findRoots(quatr);
+    PrintRoots(myRoots);
+
+    return 0;
+}

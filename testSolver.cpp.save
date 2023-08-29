@@ -1,0 +1,250 @@
+#include "testSolver.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <cassert>
+#include <cstring>
+#include "findRoots.h"
+
+const float ACCURACY = 0.0001;
+
+
+// TODO: a < b := compare(a, b) < 0
+
+// TODO: can you make this function static?
+int compareTest(float a, float b) { // TODO: looseComparison
+    //
+    if(a == NAN && b == NAN ){
+        return EQUVAL;
+    }
+
+    if(fabs(a - b) < ACCURACY){
+        return EQUVAL;
+    }
+    else if(a - b > ACCURACY){
+        return FIRST;
+    }
+    return SECOND;
+}
+
+struct testData{
+
+    coef coefs;
+    roots refRoots;
+};
+
+testData makeTest(float a, float b, float c, int num, float x1, float x2, float comp){
+    testData myData{};
+    myData.coefs = makeCoef(a,b,c);
+    myData.refRoots = makeRoots(num, x1, x2, comp);
+    return myData;
+}
+
+int oneTestFile(testData myTest, FILE * testOutput){
+    assert(testOutput != NULL);
+
+    roots myRoots{};
+    myRoots = findRoots(myTest.coefs);
+    int numMistakes = 0;
+
+    if(myRoots.num != myTest.refRoots.num){
+        fprintf(testOutput,"Number of roots are different: num = %i, numRef = %i. \n",
+               myRoots.num, myTest.refRoots.num);
+        numMistakes++;
+    }
+
+    if     ((compareTest(myRoots.x1, myTest.refRoots.x1) || compareTest(myRoots.x2, myTest.refRoots.x2)) &&
+            (compareTest(myRoots.x1, myTest.refRoots.x2) || compareTest(myRoots.x1, myTest.refRoots.x2))) {
+        fprintf(testOutput,"Natash, my vse uronili! Roots are different: x1 = %f, x1Ref = %f \n",
+               myRoots.x1, myTest.refRoots.x1);
+        numMistakes++;
+    }
+
+    if(compareTest(myRoots.comp, myTest.refRoots.comp)){
+        fprintf(testOutput,"Natash, my vse uronili! Coplex parts are different: comp = %f, compRef = %f \n",
+               myRoots.comp, myTest.refRoots.comp);
+        numMistakes++;
+    }
+
+    if (numMistakes == 0){
+        fprintf( testOutput,"Test success \n");
+        return 0;
+    }
+    else {
+        fprintf(testOutput,"Lomaets'a na: a = %f, b = %f, c = %f \n"
+               "Answer: x1 = %f, x2 = %f, comp = %f \n"
+               "Refer : x1 = %f, x2 = %f, comp = %f \n \n",
+               myRoots.comp, myTest.refRoots.comp, myTest.coefs.a, myTest.coefs.b, myTest.coefs.c,
+               myRoots.x1, myRoots.x2, myRoots.comp, myTest.refRoots.x1, myTest.refRoots.x2, myTest.refRoots.comp);
+        return 1;
+    }
+}
+
+int oneTest(testData myTest){
+    HANDLE console_color;
+    console_color = GetStdHandle(STD_OUTPUT_HANDLE);
+
+    roots myRoots{};
+    myRoots = findRoots(myTest.coefs);
+    int numMistakes = 0;
+
+    if (myRoots.num != myTest.refRoots.num){
+        SetConsoleTextAttribute(console_color, RED);            //const
+
+        printf("Numbers of roots are different: num = %i, numRef = %i. \n",
+               myRoots.num, myTest.refRoots.num);
+        SetConsoleTextAttribute(console_color, WHITE);
+        numMistakes++;
+    }
+    if ((compareTest(myRoots.x1, myTest.refRoots.x1) || compareTest(myRoots.x2, myTest.refRoots.x2)) &&
+            (compareTest(myRoots.x1, myTest.refRoots.x2) || compareTest(myRoots.x1, myTest.refRoots.x2))) {
+        SetConsoleTextAttribute(console_color, RED);
+
+        printf("Natash, my vse uronili! Roots are different: x1 = %f, x1Ref = %f \n",
+               myRoots.x1, myTest.refRoots.x1);
+        SetConsoleTextAttribute(console_color, WHITE);
+        numMistakes++;
+    }
+
+    if (compareTest(myRoots.comp, myTest.refRoots.comp)){
+        SetConsoleTextAttribute(console_color, RED);
+
+        printf("Natash, my vse uronili! Complex parts are different: comp = %f, compRef = %f \n",
+               myRoots.comp, myTest.refRoots.comp);
+        SetConsoleTextAttribute(console_color, WHITE);
+        numMistakes++;
+    }
+
+    if (numMistakes == 0){
+        SetConsoleTextAttribute(console_color, GREEN);
+        printf("Test success \n");
+        SetConsoleTextAttribute(console_color, WHITE);
+        return 0;
+    }
+    else {
+        printf("Lomaets'a na: a = %f, b = %f, c = %f \n"
+               "Answer: x1 = %f, x2 = %f, comp = %f \n"
+               "Refer : x1 = %f, x2 = %f, comp = %f \n \n",
+               myRoots.comp, myTest.refRoots.comp, myTest.coefs.a, myTest.coefs.b, myTest.coefs.c,
+               myRoots.x1, myRoots.x2, myRoots.comp, myTest.refRoots.x1, myTest.refRoots.x2, myTest.refRoots.comp);
+        return 1;
+    }
+
+
+}
+void testSquare( int nameOfTest){
+    HANDLE console_color;
+    console_color = GetStdHandle(STD_OUTPUT_HANDLE);
+
+    int numOKTests = 0;
+    testData myTest[NUMTESTS] = {};
+    myTest[0] = makeTest(0,0,0,INFIN_ROOTS,DEFOLT, DEFOLT, DEFOLT ); // TODO: you can use nan for example
+    myTest[1] = makeTest(1,-2, 1,ONE_ROOT,1, 1, DEFOLT);
+    myTest[2] = makeTest(1, -3, 2, TWO_ROOTS, 1, 2, DEFOLT);
+    myTest[3] = makeTest(1,2,2, TWO_ROOTS, -1, -1, 1);
+    myTest[4] = makeTest(1, 5, 2, TWO_ROOTS, -4.56155, -0.438447, 0);
+
+    if(nameOfTest == ALL){
+        for(int i = 0; i < NUMTESTS;i++){
+            numOKTests += oneTest(myTest[i]);
+        }
+        if(numOKTests == 0){
+            SetConsoleTextAttribute(console_color, CAT);
+            printf(" \n All tests success! \n"
+                   "  /\\_/\\  (\n"
+                   " ( ^.^ ) _)\n"
+                   "   \\\"/  (\n"
+                   " ( | | )\n"
+                   "(__d b__) \n");
+            SetConsoleTextAttribute(console_color, WHITE);
+        }
+        else{
+            SetConsoleTextAttribute(console_color, PINK);
+            printf("%i of %i test failed \n", numOKTests, NUMTESTS);
+            SetConsoleTextAttribute(console_color, WHITE);
+        }
+    }
+    else if (nameOfTest != 0 && nameOfTest <= NUMTESTS){
+        oneTest(myTest[nameOfTest - 1]);
+    }
+    else{
+        SetConsoleTextAttribute(console_color, PINK);
+        printf("Invalid number of test");
+        SetConsoleTextAttribute(console_color, WHITE);
+    }
+
+
+
+
+}
+
+void testFile(FILE * fp, FILE * testOutput){
+    HANDLE console_color;
+    console_color = GetStdHandle(STD_OUTPUT_HANDLE);
+    int numTests = 0, numRoot = 0, numOkTests = 0;
+    testData myTest{};
+    float a = 0, b = 0, c = 0, x1 = 0, x2 = 0, comp = 0;
+
+    if( fscanf(fp, "%i",&numTests ) == 1){
+
+        while (getc(fp) != '\n')
+            ;
+        for (int i = 0; i < numTests && !feof(fp); i++) {
+            if(fscanf(fp, "%f %f %f %i %f %f %f", &a, &b, &c, &numRoot, &x1, &x2, &comp) == 7){
+                myTest = makeTest(a, b, c, numRoot, x1, x2, comp);
+                numOkTests += oneTestFile(myTest, testOutput);
+            }
+        }
+
+        if (numOkTests == 0){
+            printf("All tests success \n");
+        }
+        else{
+            SetConsoleTextAttribute(console_color, PINK);
+            printf("%i of %i test failed \n", numOkTests, numTests);
+            SetConsoleTextAttribute(console_color, WHITE);
+        }
+    }
+}
+
+void allTest (int argc, char *argv[]){
+    HANDLE console_color;
+    console_color = GetStdHandle(STD_OUTPUT_HANDLE);
+    char strTest[] = "test";
+    char strTestFile[] = "testFile";
+
+    if (argc == 3 && strcmp(strTest, argv[1]) == 0 ){
+            int nameOfTest = atoi(argv[2]);
+            if (strcmp("ALL", argv[2]) == 0){
+                testSquare(ALL);
+            }
+            else if (nameOfTest != 0 && nameOfTest <= NUMTESTS){
+                testSquare(nameOfTest);
+            }
+            else {
+                SetConsoleTextAttribute(console_color, PINK);
+                printf("No such test \n");
+                SetConsoleTextAttribute(console_color, WHITE);
+            }
+    }
+    else if (argc == 4 && strcmp(strTestFile, argv[1]) == 0 ){
+        FILE *testInput, *testOutput;
+
+        if (fopen(argv[2], "r") != NULL && fopen(argv[3], "w") != NULL){
+
+            testInput = fopen(argv[2], "r");
+            testOutput = fopen(argv[3], "w");
+            testFile(testInput, testOutput);
+            fclose(testOutput);
+            fclose(testInput);
+
+        }
+        else{
+
+            SetConsoleTextAttribute(console_color, PINK);
+            printf("Invalid name of file \n");
+            SetConsoleTextAttribute(console_color, WHITE);
+        }
+    }
+
+}
