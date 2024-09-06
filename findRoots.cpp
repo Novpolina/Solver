@@ -72,7 +72,7 @@ int compare (float a, float b) {
 //! @param myRoots
 //}---------------------------------------------------------------------------------------------
 
-void rootsOrder (roots* myRoots){
+static void rootsOrder (roots* myRoots){
     assert(myRoots != NULL);
 
     if(compare(myRoots->x1, myRoots->x2) == FIRST){
@@ -88,7 +88,7 @@ void rootsOrder (roots* myRoots){
 //! @return myRoots   roots of the equation
 //}---------------------------------------------------------------------------------------------
 
-roots findLinear(coef quatr){
+static roots findLinear(coef quatr){
     roots myRoots{NO_ROOTS, DEFOLT, DEFOLT, DEFOLT};
 
     if(compare(quatr.b, 0) != 0){
@@ -114,11 +114,11 @@ roots findLinear(coef quatr){
 //! @return myRoots   roots of the equation
 //}---------------------------------------------------------------------------------------------
 
-roots solveQuadratic( coef quatr ){
+static roots solveQuadratic( coef quatr ){
 
     roots myRoot{NO_ROOTS, DEFOLT, DEFOLT, DEFOLT};
-    int d = quatr.b * quatr.b - 4 * quatr.a * quatr.c;
-    float sqrt_val = sqrt(fabs(d));
+    float d = quatr.b * quatr.b - 4 * quatr.a * quatr.c;
+    float sqrt_val = std::sqrt(std::fabs(d));
 
     if (compare(d, 0) == 1) {
         myRoot.x1 = (-quatr.b + sqrt_val) / (2 * quatr.a); //ошибка quatr.b
@@ -134,7 +134,12 @@ roots solveQuadratic( coef quatr ){
     }
     else
     {
-        myRoot.x1 = -quatr.b / (4 * quatr.a); //ошибка 2 а не 4
+        if(compare(quatr.b, 0) == 0){
+            myRoot.x1 = 0;
+        }
+        else{
+            myRoot.x1 = -quatr.b / (2 * quatr.a);
+        }
         myRoot.x2 = myRoot.x1;
         myRoot.comp = sqrt_val / (2 * quatr.a);
         myRoot.num = TWO_ROOTS;
@@ -159,9 +164,9 @@ roots findRoots(struct coef quatr) {
     }
     else if (compare(quatr.c, 0) == 0){
         myRoots.x1 = 0;
-        myRoots.x2 = -quatr.b/quatr.c;
+        myRoots.x2 = -quatr.b/quatr.a;
         myRoots.comp = 0;
-        myRoots.num = ONE_ROOT;
+        myRoots.num = TWO_ROOTS;
     }
     else {
         myRoots = solveQuadratic(quatr);

@@ -2,7 +2,7 @@
 #define FINDROOTS_H_INCLUDED
 
 
-const float EPSILON = 0.000001;
+const float EPSILON = 0.000001f;
 const float DEFOLT = 0;
 
 //! @class Enum for corparation
@@ -44,8 +44,6 @@ struct roots{
 roots makeRoots(int, float, float, float);
 
 coef makeCoef(float, float, float);
-
-roots findRoots(struct coef);
 
 int compare(float, float);
 

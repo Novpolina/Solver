@@ -5,8 +5,9 @@
 #include <cassert>
 #include <cstring>
 #include "findRoots.h"
+#include "colors.h"
 
-const float ACCURACY = 0.0001;
+const float ACCURACY = 0.0001f;
 
 //{---------------------------------------------------------------------------------------------
 //! Compare two numbers with less precision
@@ -16,11 +17,11 @@ const float ACCURACY = 0.0001;
 //! @return result of comparation
 //}---------------------------------------------------------------------------------------------
 
-static int compareTest(float a, float b) {
-    if(a == NAN && b == NAN ){
+static int compareTest(float a, float b)
+{
+    if(isnan(a) && isnan(b)){
         return EQUVAL;
     }
-
     if(fabs(a - b) < ACCURACY){
         return EQUVAL;
     }
@@ -34,8 +35,8 @@ static int compareTest(float a, float b) {
 //! Structure for data to referense test
 //}--------------------------------------------------------------------------------------------
 
-struct testData{
-
+struct testData
+{
     coef coefs;
     roots refRoots;
 };
@@ -44,7 +45,8 @@ struct testData{
 //! Make the structure roots using parameters
 //! @return myData data for test in structure
 //}---------------------------------------------------------------------------------------------
-testData makeTest(float a, float b, float c, int num, float x1, float x2, float imgn){
+static testData makeTest(float a, float b, float c, int num, float x1, float x2, float imgn)
+{
     testData myData{};
     myData.coefs = makeCoef(a,b,c);
     myData.refRoots = makeRoots(num, x1, x2, imgn);
@@ -61,8 +63,11 @@ testData makeTest(float a, float b, float c, int num, float x1, float x2, float 
 //!
 //! @see findRoots(),
 //}---------------------------------------------------------------------------------------------
+static bool oneTest(testData myTest, FILE * testOutput, int numOfTest)
+{
+    HANDLE console_color;
+    console_color = GetStdHandle(STD_OUTPUT_HANDLE);
 
-bool oneTest(testData myTest, FILE * testOutput){
     assert(testOutput != NULL);
 
     roots myRoots{};
@@ -70,34 +75,47 @@ bool oneTest(testData myTest, FILE * testOutput){
     int numMistakes = 0;
 
     if(myRoots.num != myTest.refRoots.num){
+        SetConsoleTextAttribute(console_color, Magenta | Black);
+        fprintf(testOutput, "[%i]: Test failed \n ", numOfTest);
+        SetConsoleTextAttribute(console_color, White | Black);
         fprintf(testOutput,"Number of roots are different: num = %i, numRef = %i. \n",
-               myRoots.num, myTest.refRoots.num);
+                myRoots.num, myTest.refRoots.num);
         numMistakes++;
     }
 
     if((compareTest(myRoots.x1, myTest.refRoots.x1) || compareTest(myRoots.x2, myTest.refRoots.x2)) &&
             (compareTest(myRoots.x1, myTest.refRoots.x2) || compareTest(myRoots.x1, myTest.refRoots.x2))) {
-        fprintf(testOutput,"Natash, my vse uronili! Roots are different: x1 = %f, x1Ref = %f \n",
-               myRoots.x1, myTest.refRoots.x1);
+        SetConsoleTextAttribute(console_color, Magenta | Black);
+        fprintf(testOutput, "[%i]: Test failed \n ", numOfTest);
+        SetConsoleTextAttribute(console_color, White | Black);
+        fprintf(testOutput," \t Natash, my vse uronili! \n \t Roots are different: x1 = %f, x1Ref = %f , x2 = %f, x2Ref = %f\n",
+                myRoots.x1, myTest.refRoots.x1, myRoots.x2, myTest.refRoots.x2);
         numMistakes++;
     }
 
-    if(compareTest(myRoots.comp, myTest.refRoots.comp)){
-        fprintf(testOutput,"Natash, my vse uronili! Coplex parts are different: comp = %f, compRef = %f \n",
-               myRoots.comp, myTest.refRoots.comp);
+    if (compareTest(myRoots.comp, myTest.refRoots.comp)){
+        SetConsoleTextAttribute(console_color, Magenta | Black);
+        fprintf(testOutput, "[%i]: Test failed \n ", numOfTest);
+        SetConsoleTextAttribute(console_color, White | Black);
+        fprintf(testOutput, "\t Natash, my vse uronili! Coplex parts are different: comp = %f, compRef = %f \n",
+                myRoots.comp, myTest.refRoots.comp);
         numMistakes++;
     }
-
 
     if (numMistakes == 0){
-        fprintf( testOutput,"Test success \n");
-        return false; // TODO: false
+        SetConsoleTextAttribute(console_color, LightGreen | Black);
+        fprintf( testOutput, "[%i]: Test success \n", numOfTest);
+        SetConsoleTextAttribute(console_color, White | Black);
+        return false;
     }
     else {
-        fprintf(testOutput,"Lomaets'a na: a = %f, b = %f, c = %f \n"
-               "Answer: x1 = %f, x2 = %f, comp = %f \n"
-               "Refer : x1 = %f, x2 = %f, comp = %f \n \n",
-               myRoots.comp, myTest.refRoots.comp, myTest.coefs.a, myTest.coefs.b, myTest.coefs.c,
+        SetConsoleTextAttribute(console_color, Blue | Black);
+        fprintf(testOutput, "\t Lomaets'a na: ");
+        SetConsoleTextAttribute(console_color, White | Black);
+        fprintf(testOutput, "a = %f, b = %f, c = %f \n"
+               "\t Answer: x1 = %f, x2 = %f, comp = %f \n"
+               "\t Refer : x1 = %f, x2 = %f, comp = %f \n \n",
+               myTest.coefs.a, myTest.coefs.b, myTest.coefs.c,
                myRoots.x1, myRoots.x2, myRoots.comp, myTest.refRoots.x1, myTest.refRoots.x2, myTest.refRoots.comp);
         return true;
     }
@@ -113,45 +131,51 @@ bool oneTest(testData myTest, FILE * testOutput){
 //!
 //! @see oneTest(),
 //}---------------------------------------------------------------------------------------------
-void testConsole( int nameOfTest){
+static void testConsole( int nameOfTest)
+{
     HANDLE console_color;
     console_color = GetStdHandle(STD_OUTPUT_HANDLE);
 
     int numOKTests = 0;
-    testData myTest[NUMTESTS] = {};
-    myTest[0] = makeTest(0,0,0,INFIN_ROOTS,DEFOLT, DEFOLT, DEFOLT );
-    myTest[1] = makeTest(1,-2, 1,ONE_ROOT,1, 1, DEFOLT);
-    myTest[2] = makeTest(1, -3, 2, TWO_ROOTS, 1, 2, DEFOLT);
-    myTest[3] = makeTest(1,2,2, TWO_ROOTS, -1, -1, 1);
-    myTest[4] = makeTest(1, 5, 2, TWO_ROOTS, -4.56155, -0.438447, 0);
+    testData myTest[NUMTESTS] = {
+        {0, 0, 0, 0, 1}, // [0]
+        {0, 0, 0, 0, 1}, // [1]
+        {0, 0, 0, 0, 1}, // [2]
+        {0, 0, 0, 0, 1}, // [3]
+    };
+    myTest[0] = makeTest(0,  0, 0, INFIN_ROOTS, DEFOLT,    DEFOLT,    DEFOLT);
+    myTest[1] = makeTest(1,- 2, 1, ONE_ROOT,    2,         1000,      DEFOLT);
+    myTest[2] = makeTest(1, -3, 2, TWO_ROOTS,   1,         2,         DEFOLT);
+    myTest[3] = makeTest(1,  2, 2, TWO_ROOTS,  -1,        -1,         1     );
+    myTest[4] = makeTest(1,  5, 2, TWO_ROOTS,  -4.56155f, -0.438447f, 0     );
 
     if(nameOfTest == ALL){
-        for(int i = 0; i < NUMTESTS;i++){
-            numOKTests += oneTest(myTest[i], stdout);
+        for(int i = 0; i < NUMTESTS; i++){
+            numOKTests += oneTest(myTest[i], stdout, i + 1);
         }
         if(numOKTests == 0){
-            SetConsoleTextAttribute(console_color, CAT);
+            SetConsoleTextAttribute(console_color, Cyan | Black);
             printf(" \n All tests success! \n"
                    "  /\\_/\\  (\n"
                    " ( ^.^ ) _)\n"
                    "   \\\"/  (\n"
                    " ( | | )\n"
                    "(__d b__) \n");
-            SetConsoleTextAttribute(console_color, WHITE);
+            SetConsoleTextAttribute(console_color, White | Black);
         }
         else{
-            SetConsoleTextAttribute(console_color, PINK);
+            SetConsoleTextAttribute(console_color, Yellow | Black);
             printf("%i of %i test failed \n", numOKTests, NUMTESTS);
-            SetConsoleTextAttribute(console_color, WHITE);
+            SetConsoleTextAttribute(console_color, White | Black);
         }
     }
-    else if (nameOfTest != 0 && nameOfTest <= NUMTESTS){
-        oneTest(myTest[nameOfTest - 1], stdout);
+    else if (nameOfTest > 0 && nameOfTest <= NUMTESTS){
+        oneTest(myTest[nameOfTest - 1], stdout, nameOfTest);
     }
     else {
-        SetConsoleTextAttribute(console_color, PINK);
+        SetConsoleTextAttribute(console_color, Red | Black);
         printf("Invalid number of test");
-        SetConsoleTextAttribute(console_color, WHITE);
+        SetConsoleTextAttribute(console_color, White | Black);
     }
 }
 
@@ -165,8 +189,8 @@ void testConsole( int nameOfTest){
 //!
 //! @see oneTest(),
 //}---------------------------------------------------------------------------------------------
-
-void testFile(FILE * fp, FILE * testOutput){
+static void testFile(FILE * fp, FILE * testOutput)
+{
     HANDLE console_color;
     console_color = GetStdHandle(STD_OUTPUT_HANDLE);
     int numTests = 0, numRoot = 0, numOkTests = 0;
@@ -177,22 +201,34 @@ void testFile(FILE * fp, FILE * testOutput){
 
         while (getc(fp) != '\n')
             ;
-        for (int i = 0; i < numTests && !feof(fp); i++) {
+        int i = 0;
+        for (; i < numTests && !feof(fp); i++) {
             if(fscanf(fp, "%f %f %f %i %f %f %f", &a, &b, &c, &numRoot, &x1, &x2, &comp) == 7){
                 myTest = makeTest(a, b, c, numRoot, x1, x2, comp);
-                numOkTests += oneTest(myTest, testOutput);
+                numOkTests += oneTest(myTest, testOutput, i + 1);
             }
         }
 
         if (numOkTests == 0){
+            SetConsoleTextAttribute(console_color, LightGreen | Black);
             printf("All tests success \n");
+            SetConsoleTextAttribute(console_color, White | Black);
         }
         else{
-            SetConsoleTextAttribute(console_color, PINK);
-            printf("%i of %i test failed \n", numOkTests, numTests);
-            SetConsoleTextAttribute(console_color, WHITE);
+            SetConsoleTextAttribute(console_color, Yellow | Black);
+            printf("%i of %i test failed \n", numOkTests, i);
+            SetConsoleTextAttribute(console_color, White | Black);
         }
     }
+}
+
+//{---------------------------------------------------------------------------------------------
+//! write help to flags
+//}---------------------------------------------------------------------------------------------
+static void helpToTest(){
+    printf("\t --test  -  to run tests from programm, ALL for all test or yuo can put the number of test which should be run \n"
+           "\t --test_file  -  to run tests from file. First argument should be a path to input file, second argument - to output file \n");
+
 }
 
 //{---------------------------------------------------------------------------------------------
@@ -200,11 +236,13 @@ void testFile(FILE * fp, FILE * testOutput){
 //! @see testConsole(), testFile()
 //! @note get the command line arguments
 //}---------------------------------------------------------------------------------------------
-void run_allTests (int argc, char *argv[]){
+void runAllTests (int argc, char *argv[])
+{
     HANDLE console_color;
     console_color = GetStdHandle(STD_OUTPUT_HANDLE);
-    char strTest[] = "test";
-    char strTestFile[] = "testFile";
+    char strTest[] = "--test";
+    char strTestFile[] = "--test_file";
+    char helpTest[] = "--help";
 
     if (argc == 3 && strcmp(strTest, argv[1]) == 0 ){
             int nameOfTest = atoi(argv[2]);
@@ -215,9 +253,9 @@ void run_allTests (int argc, char *argv[]){
                 testConsole(nameOfTest);
             }
             else {
-                SetConsoleTextAttribute(console_color, PINK);
+                SetConsoleTextAttribute(console_color, Red | Black);
                 printf("No such test \n");
-                SetConsoleTextAttribute(console_color, WHITE);
+                SetConsoleTextAttribute(console_color, White | Black);
             }
     }
     else if (argc == 4 && strcmp(strTestFile, argv[1]) == 0 ){
@@ -234,10 +272,18 @@ void run_allTests (int argc, char *argv[]){
         }
         else{
 
-            SetConsoleTextAttribute(console_color, PINK);
+            SetConsoleTextAttribute(console_color, Red | Black);
             printf("Invalid name of file \n");
-            SetConsoleTextAttribute(console_color, WHITE);
+            SetConsoleTextAttribute(console_color, White | Black);
         }
+    }
+    else if(argc == 2 && strcmp(helpTest, argv[1]) == 0){
+        helpToTest();
+    }
+    else{
+        SetConsoleTextAttribute(console_color, Red | Black);
+        printf("Invalid arguments");
+        SetConsoleTextAttribute(console_color, White | Black);
     }
 
 }
