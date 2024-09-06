@@ -1,0 +1,11 @@
+[1]: Test failed 
+  	 Natash, my vse uronili! 
+ 	 Roots are different: x1 = 0.000150, x1Ref = 1.000000 , x2 = 0.000150, x2Ref = 2.000000
+[1]: Test failed 
+ 	 Natash, my vse uronili! Coplex parts are different: comp = 0.014141, compRef = 0.000000 
+	 Lomaets'a na: a = 10000.000000, b = -3.000000, c = 2.000000 
+	 Answer: x1 = 0.000150, x2 = 0.000150, comp = 0.014141 
+	 Refer : x1 = 1.000000, x2 = 2.000000, comp = 0.000000 
+ 
+[2]: Test success 
+[3]: Test success 
